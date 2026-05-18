@@ -24,8 +24,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/harishgnanasekar/tuskr-cli"
-Repository = "https://github.com/harishgnanasekar/tuskr-cli"
+Homepage = "https://github.com/harish-talview/tuskr-cli"
+Repository = "https://github.com/harish-talview/tuskr-cli"
 
 [project.scripts]
 tuskr = "tuskr.cli:cli"
