@@ -1,0 +1,28 @@
+{
+  "$schema": "https://claude.ai/schemas/marketplace.json",
+  "name": "tuskr",
+  "description": "Claude Code plugins for Tuskr test management",
+  "owner": {
+    "name": "Harish Gnanasekar",
+    "email": "harish.gnanasekar@talview.com"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "tuskr-skill",
+      "source": "./tuskr-skill",
+      "description": "Interact with the Tuskr test management API via tuskr-cli",
+      "version": "1.0.0",
+      "author": {
+        "name": "Harish Gnanasekar",
+        "email": "harish.gnanasekar@talview.com"
+      },
+      "homepage": "https://github.com/harish-talview/tuskr-cli",
+      "repository": "https://github.com/harish-talview/tuskr-cli",
+      "license": "MIT",
+      "keywords": ["tuskr", "test-management", "testing", "qa"]
+    }
+  ]
+}
