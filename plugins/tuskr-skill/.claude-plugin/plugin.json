@@ -1,0 +1,5 @@
+{
+  "name": "tuskr-skill",
+  "description": "Interact with the Tuskr test management API via tuskr-cli",
+  "version": "1.0.0"
+}
