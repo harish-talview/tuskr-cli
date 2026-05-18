@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tuskr-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "CLI for the Tuskr test management API"
 authors = [{ name = "Harish Gnanasekar", email = "harish.gnanasekar@talview.com" }]
 readme = "README.md"
@@ -25,6 +25,9 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/harish-talview/tuskr-cli"
 Repository = "https://github.com/harish-talview/tuskr-cli"
+
+[tool.setuptools.packages.find]
+include = ["tuskr*"]
 
 [project.scripts]
 tuskr = "tuskr.cli:cli"
