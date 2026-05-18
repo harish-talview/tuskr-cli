@@ -95,7 +95,7 @@ def project_list(limit, offset, as_json):
     if as_json:
         print_json(result)
     else:
-        rows = result.get("data", {}).get("rows", [])
+        rows = result.get("rows", [])
         print_table(rows, ["id", "name", "status"])
 
 
@@ -130,16 +130,13 @@ def case():
 
 
 @case.command("list")
-@click.option("--project-id")
-@click.option("--limit", default=20, show_default=True)
-@click.option("--offset", default=0, show_default=True)
+@click.option("--project-id", required=True, help="Project ID (required).")
+@click.option("--page", default=1, show_default=True, help="Page number (100 records per page).")
 @click.option("--json", "as_json", is_flag=True)
-def case_list(project_id, limit, offset, as_json):
+def case_list(project_id, page, as_json):
     """List test cases. [GET /test-case]"""
     client = _client()
-    params = {"limit": limit, "offset": offset}
-    if project_id:
-        params["project"] = project_id
+    params = {"filter[project]": project_id, "page": page}
     try:
         result = client.get("/test-case", params=params)
     except TuskrAPIError as e:
@@ -147,7 +144,7 @@ def case_list(project_id, limit, offset, as_json):
     if as_json:
         print_json(result)
     else:
-        rows = result.get("data", {}).get("rows", [])
+        rows = result.get("rows", [])
         print_table(rows, ["id", "name", "project"])
 
 
@@ -218,16 +215,13 @@ def run():
 
 
 @run.command("list")
-@click.option("--project-id")
-@click.option("--limit", default=20, show_default=True)
-@click.option("--offset", default=0, show_default=True)
+@click.option("--project-id", required=True, help="Project ID (required).")
+@click.option("--page", default=1, show_default=True, help="Page number (100 records per page).")
 @click.option("--json", "as_json", is_flag=True)
-def run_list(project_id, limit, offset, as_json):
+def run_list(project_id, page, as_json):
     """List test runs. [GET /test-run]"""
     client = _client()
-    params = {"limit": limit, "offset": offset}
-    if project_id:
-        params["project"] = project_id
+    params = {"filter[project]": project_id, "page": page}
     try:
         result = client.get("/test-run", params=params)
     except TuskrAPIError as e:
@@ -235,7 +229,7 @@ def run_list(project_id, limit, offset, as_json):
     if as_json:
         print_json(result)
     else:
-        rows = result.get("data", {}).get("rows", [])
+        rows = result.get("rows", [])
         print_table(rows, ["id", "name", "status", "project"])
 
 
@@ -266,13 +260,12 @@ def run_create(name, project_id, all_cases, as_json):
 @run.command("results")
 @click.argument("run_id")
 @click.option("--status", help="Filter by status (e.g. passed, failed, untested).")
-@click.option("--limit", default=50, show_default=True)
-@click.option("--offset", default=0, show_default=True)
+@click.option("--page", default=1, show_default=True, help="Page number (100 records per page).")
 @click.option("--json", "as_json", is_flag=True)
-def run_results(run_id, status, limit, offset, as_json):
+def run_results(run_id, status, page, as_json):
     """Get results for a test run. [GET /test-run/<id>/results]"""
     client = _client()
-    params = {"limit": limit, "offset": offset}
+    params = {"page": page}
     if status:
         params["status"] = status
     try:
@@ -282,7 +275,7 @@ def run_results(run_id, status, limit, offset, as_json):
     if as_json:
         print_json(result)
     else:
-        rows = result.get("data", {}).get("rows", [])
+        rows = result.get("rows", [])
         print_table(rows, ["id", "testCase", "status", "assignedTo"])
 
 
@@ -344,20 +337,19 @@ def suite():
 
 
 @suite.command("list")
-@click.option("--project-id")
+@click.option("--project-id", required=True, help="Project ID (required).")
+@click.option("--page", default=1, show_default=True, help="Page number (100 records per page).")
 @click.option("--json", "as_json", is_flag=True)
-def suite_list(project_id, as_json):
+def suite_list(project_id, page, as_json):
     """List test suites and sections. [GET /test-suite]"""
     client = _client()
-    params = {}
-    if project_id:
-        params["project"] = project_id
+    params = {"filter[project]": project_id, "page": page}
     try:
-        result = client.get("/test-suite", params=params or None)
+        result = client.get("/test-suite", params=params)
     except TuskrAPIError as e:
         _die(e)
     if as_json:
         print_json(result)
     else:
-        rows = result.get("data", {}).get("rows", [])
+        rows = result.get("rows", [])
         print_table(rows, ["id", "name", "project"])
