@@ -10,6 +10,21 @@ pipx install tuskr-cli
 pip install tuskr-cli
 ```
 
+## Claude Code Plugin
+
+Install the tuskr skill directly into Claude Code via the plugin marketplace:
+
+```bash
+/plugin marketplace add harish-talview/tuskr-cli
+/plugin install tuskr-skill@tuskr
+```
+
+Once installed, Claude Code will use the tuskr skill automatically when you ask about Tuskr test management. You can also invoke it directly:
+
+```bash
+/tuskr-skill:tuskr
+```
+
 ## Quick Start
 
 Get your API token from Tuskr → Top Menu → User Profile Icon → API.
