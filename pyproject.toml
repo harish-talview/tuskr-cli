@@ -8,12 +8,11 @@ version = "0.1.0"
 description = "CLI for the Tuskr test management API"
 authors = [{ name = "Harish Gnanasekar", email = "harish.gnanasekar@talview.com" }]
 readme = "README.md"
-license = { text = "MIT" }
+license = "MIT"
 requires-python = ">=3.9"
 keywords = ["tuskr", "testing", "test-management", "cli"]
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Environment :: Console",
   "Topic :: Software Development :: Testing",
