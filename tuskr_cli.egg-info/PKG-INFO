@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: tuskr-cli
+Version: 0.1.0
+Summary: CLI for the Tuskr test management API
+Author-email: Harish Gnanasekar <harish.gnanasekar@talview.com>
+Requires-Python: >=3.9
+Requires-Dist: click>=8.0
+Requires-Dist: requests>=2.31

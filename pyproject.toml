@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tuskr-cli"
+version = "0.1.0"
+description = "CLI for the Tuskr test management API"
+authors = [{ name = "Harish Gnanasekar", email = "harish.gnanasekar@talview.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["tuskr", "testing", "test-management", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = [
+  "click>=8.0",
+  "requests>=2.31",
+]
+
+[project.urls]
+Homepage = "https://github.com/harishgnanasekar/tuskr-cli"
+Repository = "https://github.com/harishgnanasekar/tuskr-cli"
+
+[project.scripts]
+tuskr = "tuskr.cli:cli"
