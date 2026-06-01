@@ -1,5 +1,6 @@
 ---
-description: Interact with the Tuskr test management API via the tuskr CLI
+name: tuskr
+description: Interact with the Tuskr test management API — list projects, manage test cases, create and query test runs, import JUnit XML results
 ---
 
 Use the `tuskr` CLI to manage projects, test cases, test runs, and results in Tuskr.
